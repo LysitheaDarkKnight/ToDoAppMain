@@ -1,0 +1,125 @@
+$Bright-Blue: hsl(220, 98%, 61%);
+$Background-Check: linear-gradient(to right, hsl(192, 100%, 67%) 0, hsl(280, 87%, 65%) 100%);
+$Error-Color: hsl(0, 100%, 66%);
+
+
+// Dark Mode
+
+$Very-Dark-Blue: hsl(235, 21%, 11%);
+$Very-Dark-Desaturated-Blue: hsl(235, 24%, 19%);
+$Light-Grayish-Blue-Dark-Mode: hsl(234, 39%, 85%);
+$Light-Grayish-Blue-2: hsl(236, 33%, 92%);
+$Dark-Grayish-Blue-Dark-Mode: hsl(234, 11%, 52%);
+$Very-Dark-Grayish-Blue: hsl(233, 14%, 35%);
+$Very-Dark-Grayish-Blue-2: hsl(237, 14%, 26%);
+
+// Light Mode
+
+$Very-Light-Gray: hsl(0, 0%, 98%);
+$Very-Light-Grayish-Blue: hsl(236, 33%, 92%);
+$Light-Grayish-Blue: hsl(233, 11%, 84%);
+$Dark-Grayish-Blue: hsl(236, 9%, 61%);
+$Very-Dark-Grayish-Blue-Light-Mode: hsl(235, 19%, 35%);
+
+
+// Dark/Light Mode Toggle
+
+@mixin dark-mode {
+    background-color: $Very-Dark-Blue;
+
+    button{
+        color: $Very-Dark-Grayish-Blue;
+    }
+
+    #create, #search, .todo-item, .options, .toggle  {
+        background-color: $Very-Dark-Desaturated-Blue;
+    }
+
+    label {
+        color: $Light-Grayish-Blue-Dark-Mode;
+    }
+
+    input[type = text] {
+        color: $Light-Grayish-Blue-Dark-Mode;
+
+        &::placeholder{
+            color: $Dark-Grayish-Blue-Dark-Mode;
+        }
+    }
+
+    .options{
+        color: $Very-Dark-Grayish-Blue;
+        :hover{
+            color: $Light-Grayish-Blue-2;
+        }
+    }
+
+    .toggle{
+        color: $Very-Dark-Grayish-Blue;
+        :hover{
+            color: $Light-Grayish-Blue-2;
+        }
+    }
+
+    .selected{
+        color: $Light-Grayish-Blue-2;
+    }
+
+    .line-through{
+        color: $Very-Dark-Grayish-Blue-2;
+    }
+}
+
+// Light Mode
+
+$Very-Light-Gray: hsl(0, 0%, 98%);
+$Very-Light-Grayish-Blue: hsl(236, 33%, 92%);
+$Light-Grayish-Blue: hsl(233, 11%, 84%);
+$Dark-Grayish-Blue: hsl(236, 9%, 61%);
+$Very-Dark-Grayish-Blue-Light-Mode: hsl(235, 19%, 35%);
+
+@mixin light-mode {
+    background-color: $Very-Light-Gray;
+
+    #create, #search, .todo-item, .options, .toggle  {
+        background-color: #fff;
+    }
+
+    button{
+        color: $Dark-Grayish-Blue;
+    }
+
+    label {
+        color: $Very-Dark-Grayish-Blue-Light-Mode;
+    }
+
+    input[type = text] {
+        color: $Very-Dark-Grayish-Blue-Light-Mode;
+
+        &::placeholder{
+            color: $Dark-Grayish-Blue;
+        }
+    }
+
+    .options{
+        color: $Dark-Grayish-Blue;
+        :hover{
+            color: $Very-Dark-Grayish-Blue-Light-Mode;
+        }
+    }
+
+    .toggle{
+        color: $Very-Dark-Grayish-Blue;
+        :hover{
+            color: $Very-Dark-Grayish-Blue-Light-Mode;
+        }
+    }
+
+    .selected{
+    color: $Very-Dark-Grayish-Blue-Light-Mode;
+    }
+
+    .line-through{
+        color: $Very-Light-Grayish-Blue;
+    }
+}

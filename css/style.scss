@@ -1,0 +1,285 @@
+@use 'colors' as *;
+@use 'functions' as *;
+@use 'fonts' as *;
+
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap');
+
+// UNIVERSAL //
+
+body{
+  font-family: $josefin-sans;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  transition: all 0.4s ease;
+}
+
+img{
+    display: block;
+}
+
+input{
+    font-family: $josefin-sans;
+}
+
+label{
+    line-height: 1.5;
+}
+
+
+button{
+    background-color: transparent;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    display: block;
+    border: none;
+    border-radius: 4rem;
+    font-weight: 700;
+}
+
+// Dark/Light mode //
+
+.dark-mode{
+    @include dark-mode;
+}
+
+.light-mode{
+    @include light-mode;
+}
+
+////
+
+// Javascript event additions //
+
+#error{
+    background-color: $Error-Color;
+    color: #fff;
+    padding: 0.6rem 1.5rem;
+    border-radius: 0.4rem;
+    margin-bottom: 1rem;
+    font-size: 0.75rem;
+    text-align: center;
+    display: none;
+}
+
+.line-through{
+    text-decoration: line-through;
+}
+
+// .selected{
+//     color: $light-grayish-blue-2;
+// }
+
+// Dark/Light mode toggle
+
+.dark-mode{
+    @include dark-mode
+    
+}
+
+////
+
+
+.background{
+    background: url(../images/bg-mobile-dark.jpg);
+    background-repeat: no-repeat;
+    padding-top: 3rem;
+    padding-bottom: 10rem;
+    background-size: contain;
+
+
+    .hero{
+        padding: 0 1.5rem;
+        max-width: 35rem;
+        margin: auto;
+        position: relative;
+        .title-container{
+            @include set-flex($justify-content: space-between, $align-items:center);
+            padding-bottom: 2rem;
+            .title{
+                text-transform: uppercase;
+                letter-spacing: 10px;
+                font-size: 1.8rem;
+                color: #fff;
+            }
+    
+            #mode-toggle{
+                .dark{
+                    display: none;
+                }
+            }
+        }
+        input[type= text]{
+            border: none;
+            background-color: transparent;
+            outline-color: transparent;
+            &:focus{
+                outline: 0;
+            }
+
+
+        }
+        .checkbox-item [type="checkbox"]{
+            display: none;
+        }
+
+        .checkbox-item {
+            position: relative;
+            label{
+            display: block;
+            padding: 0 2rem;
+            font-size: 0.85rem;
+            white-space: nowrap;
+            position: relative;
+            cursor: pointer;
+            &:after, &:before{
+                position: absolute;
+                border-radius: 50%;
+            }
+
+            &:after{
+                content: "";
+                height: 20px;
+                width: 20px;
+                border:1px solid $Very-Dark-Grayish-Blue;
+                left: 0;
+                top: 0;
+            }
+
+            &:before{
+                content: url(../images/icon-check.svg);
+                background: $Background-Check;
+                height: 20px;
+                width: 20px;
+                left: 0;
+                top: 0;
+                transform: scale(5);
+                transition: .4s ease-in-out 0s;
+                opacity: 0;
+                visibility: hidden;
+                display: block;
+                text-align: center;
+                
+            }
+
+            
+        }
+
+        [type="checkbox"]:checked ~ label:before{
+            opacity: 1;
+            visibility: visible;
+            transform: scale(1);
+            
+        }
+
+        [type="checkbox"]:checked ~ label:after{
+            opacity: 0;
+        }
+
+        [type="checkbox"]:hover ~ label:after{
+            border: 1px solid transparent;
+            background: $Background-Check border-box; /*3*/
+            -webkit-mask: /*4*/
+               linear-gradient(#fff 0 0) padding-box, 
+               linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor; /*5'*/
+                    mask-composite: exclude; /*5*/
+
+                    // (3): We apply a gradient as background and we make its origin the border box (by default it's the padding box).
+                    // (4): Using the mask property, we apply two opaque layers. The bottom one will cover the whole element and the top one will cover only the padding box (so it will not cover the border area)
+                    // (5): We exclude the top layer from the bottom one so that only the border area will be shown!
+                    // (5'): Some browsers still don't support mask-composite so we use the prefixed version.
+
+                    // https://dev.to/afif/border-with-gradient-and-radius-387f
+        }
+
+        button{
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+    }
+    #create, #search{
+        border-radius: 0.4rem;
+    }
+
+    #create, #search, .options{
+        margin-bottom: 1rem;
+    }
+
+    .options, .toggle{
+        box-shadow: 0 11px 28px rgba(0,0,0,0.20), 0 12px 6px rgba(0,0,0,0.12);
+    }
+
+    #create, #search, .todo-item, .options, .toggle  {
+        padding: 1rem 1.5rem;
+    }
+
+    .todo-item{
+        border-bottom: 1px solid $Dark-Grayish-Blue-Dark-Mode;
+    }
+
+    .todo-item:nth-of-type(4){
+        border-radius: 0.4rem 0.4rem 0 0;
+    }
+
+    .options{
+        @include set-flex($justify-content: space-between, $align-items:baseline);
+        border-radius: 0 0 0.4rem 0.4rem;
+        p, button{
+            font-size: 0.85rem;
+        }
+
+    }
+
+    .toggle{
+        @include set-flex($justify-content: center, $align-items:center);
+        gap: 1rem;
+        border-radius: 0.4rem;
+        .all{
+            color: $Bright-Blue;
+        }
+
+    }
+
+    #drag-and-drop{
+        margin: auto;
+        padding-top: 3rem;
+    }
+    }
+
+}
+
+@include mq(57.5rem){
+    :root{
+        font-size: 18px;
+    }
+
+    .background{
+        background: url(../images/bg-desktop-dark.jpg);
+        background-repeat:  no-repeat;
+        background-size: 100%;
+        .hero{
+            input[type= text]{
+                font-size: 0.85rem;
+                &:focus{
+                    outline: 0;
+                }
+            }
+            .toggle{
+                background-color: transparent;
+                box-shadow: none;
+                transform: translateY(-145%);
+                margin: auto;
+                width: fit-content;
+            }
+            #drag-and-drop{
+                padding-top: 0;
+            }
+        }
+        
+    }
+}

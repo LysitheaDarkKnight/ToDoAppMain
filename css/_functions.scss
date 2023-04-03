@@ -1,0 +1,13 @@
+@mixin set-flex($flex-direction: row, $align-items: stretch, $justify-content: stretch) {
+    display: flex;
+    flex-direction: $flex-direction;
+    align-items: $align-items;
+    justify-content: $justify-content;
+}
+
+
+@mixin mq($size){
+    @media only screen and (min-width: $size){
+        @content
+    }
+}

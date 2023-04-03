@@ -1,0 +1,327 @@
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap");
+body {
+  font-family: "Josefin Sans", sans-serif;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  transition: all 0.4s ease;
+}
+
+img {
+  display: block;
+}
+
+input {
+  font-family: "Josefin Sans", sans-serif;
+}
+
+label {
+  line-height: 1.5;
+}
+
+button {
+  background-color: transparent;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  display: block;
+  border: none;
+  border-radius: 4rem;
+  font-weight: 700;
+}
+
+.dark-mode {
+  background-color: hsl(235, 21%, 11%);
+}
+.dark-mode button {
+  color: hsl(233, 14%, 35%);
+}
+.dark-mode #create, .dark-mode #search, .dark-mode .todo-item, .dark-mode .options, .dark-mode .toggle {
+  background-color: hsl(235, 24%, 19%);
+}
+.dark-mode label {
+  color: hsl(234, 39%, 85%);
+}
+.dark-mode input[type=text] {
+  color: hsl(234, 39%, 85%);
+}
+.dark-mode input[type=text]::placeholder {
+  color: hsl(234, 11%, 52%);
+}
+.dark-mode .options {
+  color: hsl(233, 14%, 35%);
+}
+.dark-mode .options :hover {
+  color: hsl(236, 33%, 92%);
+}
+.dark-mode .toggle {
+  color: hsl(233, 14%, 35%);
+}
+.dark-mode .toggle :hover {
+  color: hsl(236, 33%, 92%);
+}
+.dark-mode .selected {
+  color: hsl(236, 33%, 92%);
+}
+.dark-mode .line-through {
+  color: hsl(237, 14%, 26%);
+}
+
+.light-mode {
+  background-color: hsl(0, 0%, 98%);
+}
+.light-mode #create, .light-mode #search, .light-mode .todo-item, .light-mode .options, .light-mode .toggle {
+  background-color: #fff;
+}
+.light-mode button {
+  color: hsl(236, 9%, 61%);
+}
+.light-mode label {
+  color: hsl(235, 19%, 35%);
+}
+.light-mode input[type=text] {
+  color: hsl(235, 19%, 35%);
+}
+.light-mode input[type=text]::placeholder {
+  color: hsl(236, 9%, 61%);
+}
+.light-mode .options {
+  color: hsl(236, 9%, 61%);
+}
+.light-mode .options :hover {
+  color: hsl(235, 19%, 35%);
+}
+.light-mode .toggle {
+  color: hsl(233, 14%, 35%);
+}
+.light-mode .toggle :hover {
+  color: hsl(235, 19%, 35%);
+}
+.light-mode .selected {
+  color: hsl(235, 19%, 35%);
+}
+.light-mode .line-through {
+  color: hsl(236, 33%, 92%);
+}
+
+#error {
+  background-color: hsl(0, 100%, 66%);
+  color: #fff;
+  padding: 0.6rem 1.5rem;
+  border-radius: 0.4rem;
+  margin-bottom: 1rem;
+  font-size: 0.75rem;
+  text-align: center;
+  display: none;
+}
+
+.line-through {
+  text-decoration: line-through;
+}
+
+.dark-mode {
+  background-color: hsl(235, 21%, 11%);
+}
+.dark-mode button {
+  color: hsl(233, 14%, 35%);
+}
+.dark-mode #create, .dark-mode #search, .dark-mode .todo-item, .dark-mode .options, .dark-mode .toggle {
+  background-color: hsl(235, 24%, 19%);
+}
+.dark-mode label {
+  color: hsl(234, 39%, 85%);
+}
+.dark-mode input[type=text] {
+  color: hsl(234, 39%, 85%);
+}
+.dark-mode input[type=text]::placeholder {
+  color: hsl(234, 11%, 52%);
+}
+.dark-mode .options {
+  color: hsl(233, 14%, 35%);
+}
+.dark-mode .options :hover {
+  color: hsl(236, 33%, 92%);
+}
+.dark-mode .toggle {
+  color: hsl(233, 14%, 35%);
+}
+.dark-mode .toggle :hover {
+  color: hsl(236, 33%, 92%);
+}
+.dark-mode .selected {
+  color: hsl(236, 33%, 92%);
+}
+.dark-mode .line-through {
+  color: hsl(237, 14%, 26%);
+}
+
+.background {
+  background: url(../images/bg-mobile-dark.jpg);
+  background-repeat: no-repeat;
+  padding-top: 3rem;
+  padding-bottom: 10rem;
+  background-size: contain;
+}
+.background .hero {
+  padding: 0 1.5rem;
+  max-width: 35rem;
+  margin: auto;
+  position: relative;
+}
+.background .hero .title-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 2rem;
+}
+.background .hero .title-container .title {
+  text-transform: uppercase;
+  letter-spacing: 10px;
+  font-size: 1.8rem;
+  color: #fff;
+}
+.background .hero .title-container #mode-toggle .dark {
+  display: none;
+}
+.background .hero input[type=text] {
+  border: none;
+  background-color: transparent;
+  outline-color: transparent;
+}
+.background .hero input[type=text]:focus {
+  outline: 0;
+}
+.background .hero .checkbox-item [type=checkbox] {
+  display: none;
+}
+.background .hero .checkbox-item {
+  position: relative;
+}
+.background .hero .checkbox-item label {
+  display: block;
+  padding: 0 2rem;
+  font-size: 0.85rem;
+  white-space: nowrap;
+  position: relative;
+  cursor: pointer;
+}
+.background .hero .checkbox-item label:after, .background .hero .checkbox-item label:before {
+  position: absolute;
+  border-radius: 50%;
+}
+.background .hero .checkbox-item label:after {
+  content: "";
+  height: 20px;
+  width: 20px;
+  border: 1px solid hsl(233, 14%, 35%);
+  left: 0;
+  top: 0;
+}
+.background .hero .checkbox-item label:before {
+  content: url(../images/icon-check.svg);
+  background: linear-gradient(to right, hsl(192, 100%, 67%) 0, hsl(280, 87%, 65%) 100%);
+  height: 20px;
+  width: 20px;
+  left: 0;
+  top: 0;
+  transform: scale(5);
+  transition: 0.4s ease-in-out 0s;
+  opacity: 0;
+  visibility: hidden;
+  display: block;
+  text-align: center;
+}
+.background .hero .checkbox-item [type=checkbox]:checked ~ label:before {
+  opacity: 1;
+  visibility: visible;
+  transform: scale(1);
+}
+.background .hero .checkbox-item [type=checkbox]:checked ~ label:after {
+  opacity: 0;
+}
+.background .hero .checkbox-item [type=checkbox]:hover ~ label:after {
+  border: 1px solid transparent;
+  background: linear-gradient(to right, hsl(192, 100%, 67%) 0, hsl(280, 87%, 65%) 100%) border-box; /*3*/
+  -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor; /*5'*/
+  mask-composite: exclude; /*5*/
+}
+.background .hero .checkbox-item button {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.background .hero #create, .background .hero #search {
+  border-radius: 0.4rem;
+}
+.background .hero #create, .background .hero #search, .background .hero .options {
+  margin-bottom: 1rem;
+}
+.background .hero .options, .background .hero .toggle {
+  box-shadow: 0 11px 28px rgba(0, 0, 0, 0.2), 0 12px 6px rgba(0, 0, 0, 0.12);
+}
+.background .hero #create, .background .hero #search, .background .hero .todo-item, .background .hero .options, .background .hero .toggle {
+  padding: 1rem 1.5rem;
+}
+.background .hero .todo-item {
+  border-bottom: 1px solid hsl(234, 11%, 52%);
+}
+.background .hero .todo-item:nth-of-type(4) {
+  border-radius: 0.4rem 0.4rem 0 0;
+}
+.background .hero .options {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  justify-content: space-between;
+  border-radius: 0 0 0.4rem 0.4rem;
+}
+.background .hero .options p, .background .hero .options button {
+  font-size: 0.85rem;
+}
+.background .hero .toggle {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  border-radius: 0.4rem;
+}
+.background .hero .toggle .all {
+  color: hsl(220, 98%, 61%);
+}
+.background .hero #drag-and-drop {
+  margin: auto;
+  padding-top: 3rem;
+}
+
+@media only screen and (min-width: 57.5rem) {
+  :root {
+    font-size: 18px;
+  }
+  .background {
+    background: url(../images/bg-desktop-dark.jpg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+  }
+  .background .hero input[type=text] {
+    font-size: 0.85rem;
+  }
+  .background .hero input[type=text]:focus {
+    outline: 0;
+  }
+  .background .hero .toggle {
+    background-color: transparent;
+    box-shadow: none;
+    transform: translateY(-145%);
+    margin: auto;
+    width: fit-content;
+  }
+  .background .hero #drag-and-drop {
+    padding-top: 0;
+  }
+}/*# sourceMappingURL=style.css.map */
